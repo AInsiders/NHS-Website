@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Consultation – NHS Law Firm</title>
+  <title>Contact Us – NHS Law Firm</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -13,7 +13,7 @@
   <nav class="navbar">
     <div class="nav-container">
               <div class="nav-logo">
-          <img src="Logo.png" alt="NHS Law Firm Logo" class="logo-image">
+          <img src="New Logo.png" alt="NHS Law Firm Logo" class="logo-image">
         </div>
       <ul class="nav-menu">
         <li class="nav-item">
@@ -26,7 +26,7 @@
           <a href="natalie.html" class="nav-link">Our Founder</a>
         </li>
         <li class="nav-item">
-          <a href="book.html" class="nav-link active">Book Consultation</a>
+          <a href="book.html" class="nav-link active">Contact</a>
         </li>
       </ul>
       <div class="hamburger">
@@ -40,67 +40,27 @@
   <!-- Page Header -->
   <section class="page-header">
     <div class="container">
-      <h1>Schedule Your Consultation</h1>
-      <p>Begin your journey to securing your family's future</p>
+      <h1>Contact Us</h1>
+      <p>Get in touch with Natalie Hurley Harden Schmidt for expert legal guidance</p>
     </div>
   </section>
 
   <!-- Main Content -->
   <main class="main-content">
     <div class="container">
-      <!-- Consultation Options -->
-      <section class="consultation-section" data-aos="fade-up">
-        <div class="section-header">
-          <h2>Consultation Options</h2>
-          <p>Choose the consultation that best fits your needs</p>
-        </div>
-        
-        <div class="consultation-grid">
-          <div class="consultation-card" data-aos="fade-up">
-            <div class="consultation-header">
-              <h3>Initial Consultation</h3>
-              <div class="price">$50</div>
-              <div class="duration">30 minutes</div>
-            </div>
-            <div class="consultation-features">
-              <ul>
-                <li><i class="fas fa-check"></i> Brief case review</li>
-                <li><i class="fas fa-check"></i> Initial legal assessment</li>
-                <li><i class="fas fa-check"></i> Service recommendations</li>
-                <li><i class="fas fa-check"></i> Next steps guidance</li>
-              </ul>
-            </div>
-            <button class="btn btn-primary book-btn" data-consultation="30min">Book 30-Min Consultation</button>
-          </div>
-
-          <div class="consultation-card featured" data-aos="fade-up" data-aos-delay="100">
-            <div class="consultation-badge">Most Popular</div>
-            <div class="consultation-header">
-              <h3>Comprehensive Consultation</h3>
-              <div class="price">$75</div>
-              <div class="duration">60 minutes</div>
-            </div>
-            <div class="consultation-features">
-              <ul>
-                <li><i class="fas fa-check"></i> Detailed case analysis</li>
-                <li><i class="fas fa-check"></i> Comprehensive legal strategy</li>
-                <li><i class="fas fa-check"></i> Document review</li>
-                <li><i class="fas fa-check"></i> Customized action plan</li>
-                <li><i class="fas fa-check"></i> Follow-up recommendations</li>
-              </ul>
-            </div>
-            <button class="btn btn-primary book-btn" data-consultation="60min">Book 60-Min Consultation</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- Booking Form -->
+      <!-- Contact Form -->
       <section class="booking-form-section" data-aos="fade-up">
         <div class="form-container">
-          <h2>Schedule Your Appointment</h2>
-          <p>Please fill out the form below to schedule your consultation with Natalie Hurley Harden Schmidt.</p>
+          <h2>Send Us a Message</h2>
+          <p>Fill out the form below to get in touch with our legal team. We'll respond within 24 hours.</p>
           
-          <form class="booking-form" id="bookingForm">
+          <form class="booking-form" id="contactForm" action="https://formsubmit.co/natalie@nhslawfirm.com" method="POST">
+            <!-- FormSubmit Configuration -->
+            <input type="hidden" name="_subject" value="New Contact Form Submission - NHS Law Firm">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="thank-you.html">
+            
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name *</label>
@@ -124,18 +84,22 @@
             </div>
 
             <div class="form-group">
-              <label for="consultationType">Consultation Type *</label>
-              <select id="consultationType" name="consultationType" required>
-                <option value="">Select consultation type</option>
-                <option value="30min">30-Minute Consultation ($50)</option>
-                <option value="60min">60-Minute Consultation ($75)</option>
+              <label for="inquiryType">Type of Inquiry *</label>
+              <select id="inquiryType" name="inquiryType" required>
+                <option value="">Select inquiry type</option>
+                <option value="consultation">Schedule a Consultation</option>
+                <option value="legal-advice">Legal Advice Request</option>
+                <option value="case-review">Case Review</option>
+                <option value="general-question">General Question</option>
+                <option value="referral">Attorney Referral</option>
+                <option value="other">Other</option>
               </select>
             </div>
 
             <div class="form-group">
               <label for="practiceArea">Practice Area of Interest</label>
               <select id="practiceArea" name="practiceArea">
-                <option value="">Select practice area</option>
+                <option value="">Select practice area (if applicable)</option>
                 <option value="estate-planning">Estate Planning & Asset Protection</option>
                 <option value="probate">Probate & Estate Administration</option>
                 <option value="real-estate">Real Estate & Property Law</option>
@@ -147,22 +111,29 @@
             </div>
 
             <div class="form-group">
-              <label for="message">Brief Description of Your Legal Needs</label>
-              <textarea id="message" name="message" rows="4" placeholder="Please provide a brief description of your legal situation and what you hope to accomplish through our consultation."></textarea>
+              <label for="message">Your Message *</label>
+              <textarea id="message" name="message" rows="6" placeholder="Please describe your legal needs, questions, or the reason for your inquiry. Include any relevant details about your situation." required></textarea>
             </div>
 
             <div class="form-group">
-              <label for="preferredDate">Preferred Date</label>
-              <input type="date" id="preferredDate" name="preferredDate" min="">
+              <label for="urgency">Urgency Level</label>
+              <select id="urgency" name="urgency">
+                <option value="">Select urgency level</option>
+                <option value="low">Low - General inquiry</option>
+                <option value="medium">Medium - Planning ahead</option>
+                <option value="high">High - Time sensitive matter</option>
+                <option value="urgent">Urgent - Immediate attention needed</option>
+              </select>
             </div>
 
             <div class="form-group">
-              <label for="preferredTime">Preferred Time</label>
-              <select id="preferredTime" name="preferredTime">
-                <option value="">Select preferred time</option>
-                <option value="morning">Morning (9:00 AM - 12:00 PM)</option>
-                <option value="afternoon">Afternoon (1:00 PM - 4:00 PM)</option>
-                <option value="evening">Evening (4:00 PM - 6:00 PM)</option>
+              <label for="preferredContact">Preferred Contact Method</label>
+              <select id="preferredContact" name="preferredContact">
+                <option value="">Select preferred contact method</option>
+                <option value="email">Email</option>
+                <option value="phone">Phone Call</option>
+                <option value="text">Text Message</option>
+                <option value="video-call">Video Call</option>
               </select>
             </div>
 
@@ -170,15 +141,61 @@
               <label class="checkbox-label">
                 <input type="checkbox" name="agreement" required>
                 <span class="checkmark"></span>
-                I agree to the terms and conditions and understand that this consultation is subject to availability.
+                I agree to the terms and conditions and understand that submitting this form does not create an attorney-client relationship.
               </label>
             </div>
 
             <button type="submit" class="btn btn-primary submit-btn">
-              <i class="fas fa-calendar-check"></i>
-              Schedule Consultation
+              <i class="fas fa-paper-plane"></i>
+              Send Message
             </button>
           </form>
+        </div>
+      </section>
+
+      <!-- Consultation Options -->
+      <section class="consultation-section" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Consultation Services</h2>
+          <p>Professional legal consultations to address your specific needs</p>
+        </div>
+        
+        <div class="consultation-grid">
+          <div class="consultation-card" data-aos="fade-up">
+            <div class="consultation-header">
+              <h3>Initial Consultation</h3>
+              <div class="price">$50</div>
+              <div class="duration">30 minutes</div>
+            </div>
+            <div class="consultation-features">
+              <ul>
+                <li><i class="fas fa-check"></i> Brief case review</li>
+                <li><i class="fas fa-check"></i> Initial legal assessment</li>
+                <li><i class="fas fa-check"></i> Service recommendations</li>
+                <li><i class="fas fa-check"></i> Next steps guidance</li>
+              </ul>
+            </div>
+            <button class="btn btn-primary book-btn" data-consultation="30min">Request 30-Min Consultation</button>
+          </div>
+
+          <div class="consultation-card featured" data-aos="fade-up" data-aos-delay="100">
+            <div class="consultation-badge">Most Popular</div>
+            <div class="consultation-header">
+              <h3>Comprehensive Consultation</h3>
+              <div class="price">$75</div>
+              <div class="duration">60 minutes</div>
+            </div>
+            <div class="consultation-features">
+              <ul>
+                <li><i class="fas fa-check"></i> Detailed case analysis</li>
+                <li><i class="fas fa-check"></i> Comprehensive legal strategy</li>
+                <li><i class="fas fa-check"></i> Document review</li>
+                <li><i class="fas fa-check"></i> Customized action plan</li>
+                <li><i class="fas fa-check"></i> Follow-up recommendations</li>
+              </ul>
+            </div>
+            <button class="btn btn-primary book-btn" data-consultation="60min">Request 60-Min Consultation</button>
+          </div>
         </div>
       </section>
 
@@ -273,6 +290,26 @@
         <div class="contact-grid">
           <div class="contact-item">
             <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Phone</h3>
+              <p><a href="tel:+16625018580">+1 (662) 501-8580</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Email</h3>
+              <p><a href="mailto:natalie@nhslawfirm.com">natalie@nhslawfirm.com</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
               <i class="fas fa-map-marker-alt"></i>
             </div>
             <div class="contact-details">
@@ -288,26 +325,6 @@
             <div class="contact-details">
               <h3>Licensed In</h3>
               <p>Mississippi & Tennessee</p>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-handshake"></i>
-            </div>
-            <div class="contact-details">
-              <h3>Mediation</h3>
-              <p>Listed Rule 31 Mediator</p>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-clock"></i>
-            </div>
-            <div class="contact-details">
-              <h3>Response Time</h3>
-              <p>Within 24 hours</p>
             </div>
           </div>
         </div>
@@ -341,6 +358,8 @@
         </div>
         <div class="footer-section">
           <h4>Contact</h4>
+          <p>Phone: <a href="tel:+16625018580">+1 (662) 501-8580</a></p>
+          <p>Email: <a href="mailto:natalie@nhslawfirm.com">natalie@nhslawfirm.com</a></p>
           <p>Licensed in Mississippi & Tennessee</p>
           <p>Listed Rule 31 Mediator</p>
         </div>

@@ -125,27 +125,20 @@ function animateCounters() {
     });
 }
 
-// ===== FORM HANDLING =====
+// ===== FORM HANDLING WITH FORMSUBMIT =====
 function initializeForm() {
-    const bookingForm = document.getElementById('bookingForm');
-    const consultationType = document.getElementById('consultationType');
-    const preferredDate = document.getElementById('preferredDate');
+    const contactForm = document.getElementById('contactForm');
+    const inquiryType = document.getElementById('inquiryType');
     
-    if (bookingForm) {
-        // Set minimum date to today
-        const today = new Date().toISOString().split('T')[0];
-        if (preferredDate) {
-            preferredDate.min = today;
-        }
-
-        // Auto-select consultation type from button clicks
+    if (contactForm) {
+        // Auto-select inquiry type from consultation button clicks
         const bookButtons = document.querySelectorAll('.book-btn');
         bookButtons.forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
                 const consultation = this.getAttribute('data-consultation');
-                if (consultationType) {
-                    consultationType.value = consultation === '30min' ? '30min' : '60min';
+                if (inquiryType) {
+                    inquiryType.value = 'consultation';
                 }
                 
                 // Scroll to form
@@ -156,12 +149,16 @@ function initializeForm() {
             });
         });
 
-        // Form submission
-        bookingForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Form submission with FormSubmit
+        contactForm.addEventListener('submit', function(e) {
+            // Show loading state
+            const submitBtn = contactForm.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
             
             // Basic form validation
-            const requiredFields = bookingForm.querySelectorAll('[required]');
+            const requiredFields = contactForm.querySelectorAll('[required]');
             let isValid = true;
             
             requiredFields.forEach(field => {
@@ -173,13 +170,14 @@ function initializeForm() {
                 }
             });
 
-            if (isValid) {
-                // Show success message
-                showNotification('Thank you! Your consultation request has been submitted. We will contact you within 24 hours.', 'success');
-                bookingForm.reset();
-            } else {
+            if (!isValid) {
                 showNotification('Please fill in all required fields.', 'error');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                e.preventDefault();
             }
+            // If valid, let the form submit naturally to FormSubmit
+            // The form will redirect to the thank you page or show success message
         });
     }
 }
@@ -330,23 +328,23 @@ function initializeScrollToTop() {
     const scrollToTopBtn = document.createElement('button');
     scrollToTopBtn.innerHTML = '↑';
     scrollToTopBtn.className = 'scroll-to-top';
-    scrollToTopBtn.style.cssText = `
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        background: #8B4513;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 1.5rem;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 1000;
-    `;
+         scrollToTopBtn.style.cssText = `
+         position: fixed;
+         bottom: 30px;
+         right: 30px;
+         width: 50px;
+         height: 50px;
+         background: #DEC590;
+         color: #000000;
+         border: none;
+         border-radius: 50%;
+         cursor: pointer;
+         font-size: 1.5rem;
+         opacity: 0;
+         visibility: hidden;
+         transition: all 0.3s ease;
+         z-index: 1000;
+     `;
 
     document.body.appendChild(scrollToTopBtn);
 
@@ -481,19 +479,19 @@ document.addEventListener('DOMContentLoaded', function() {
             margin-top: 2rem;
         }
         
-        .carousel-btn {
-            background: #8B4513;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
+                 .carousel-btn {
+             background: #DEC590;
+             color: #000000;
+             border: none;
+             padding: 0.5rem 1rem;
+             border-radius: 5px;
+             cursor: pointer;
+             transition: background 0.3s ease;
+         }
         
-        .carousel-btn:hover {
-            background: #A0522D;
-        }
+                 .carousel-btn:hover {
+             background: #968056;
+         }
         
         .carousel-dots {
             display: flex;
@@ -509,28 +507,28 @@ document.addEventListener('DOMContentLoaded', function() {
             transition: background 0.3s ease;
         }
         
-        .carousel-dot.active {
-            background: #8B4513;
-        }
+                 .carousel-dot.active {
+             background: #DEC590;
+         }
         
-        .loader-spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #8B4513;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
+                 .loader-spinner {
+             width: 50px;
+             height: 50px;
+             border: 3px solid #f3f3f3;
+             border-top: 3px solid #DEC590;
+             border-radius: 50%;
+             animation: spin 1s linear infinite;
+         }
         
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
         
-        .scroll-to-top:hover {
-            background: #A0522D;
-            transform: scale(1.1);
-        }
+                 .scroll-to-top:hover {
+             background: #968056;
+             transform: scale(1.1);
+         }
     `;
     document.head.appendChild(style);
 });
@@ -538,8 +536,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // ===== TYPING ANIMATION =====
 function initializeTypingAnimation() {
   const typingText = document.getElementById('typingText');
-  const cursor = document.querySelector('.typing-cursor');
-  if (!typingText || !cursor) return;
+  if (!typingText) return;
 
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -563,26 +560,22 @@ function initializeTypingAnimation() {
     
     if (isDeleting) {
       // Deleting characters
-      typingText.textContent = currentWord.substring(0, charIndex - 1);
+      typingText.textContent = currentWord.substring(0, charIndex - 1) + '|';
       charIndex--;
       typingSpeed = deletingSpeed;
     } else {
       // Typing characters
-      typingText.textContent = currentWord.substring(0, charIndex + 1);
+      typingText.textContent = currentWord.substring(0, charIndex + 1) + '|';
       charIndex++;
       typingSpeed = 150;
     }
-
-    // Position cursor right after the typed text
-    cursor.style.marginLeft = '0';
-    cursor.style.position = 'relative';
-    cursor.style.left = '0';
 
     // Handle word completion
     if (!isDeleting && charIndex === currentWord.length) {
       // Check if this is the final word "Legacy"
       if (currentWord === 'Legacy') {
         // Stop the animation and keep "Legacy" displayed
+        typingText.textContent = 'Legacy';
         return;
       }
       // Pause at end of word (shorter pause)
