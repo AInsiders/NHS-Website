@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Consultation – NHS Law Firm</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Sticky Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+              <div class="nav-logo">
+          <img src="Logo.png" alt="NHS Law Firm Logo" class="logo-image">
+        </div>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a href="natalie.html" class="nav-link">Our Founder</a>
+        </li>
+        <li class="nav-item">
+          <a href="book.html" class="nav-link active">Book Consultation</a>
+        </li>
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Schedule Your Consultation</h1>
+      <p>Begin your journey to securing your family's future</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <!-- Consultation Options -->
+      <section class="consultation-section" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Consultation Options</h2>
+          <p>Choose the consultation that best fits your needs</p>
+        </div>
+        
+        <div class="consultation-grid">
+          <div class="consultation-card" data-aos="fade-up">
+            <div class="consultation-header">
+              <h3>Initial Consultation</h3>
+              <div class="price">$50</div>
+              <div class="duration">30 minutes</div>
+            </div>
+            <div class="consultation-features">
+              <ul>
+                <li><i class="fas fa-check"></i> Brief case review</li>
+                <li><i class="fas fa-check"></i> Initial legal assessment</li>
+                <li><i class="fas fa-check"></i> Service recommendations</li>
+                <li><i class="fas fa-check"></i> Next steps guidance</li>
+              </ul>
+            </div>
+            <button class="btn btn-primary book-btn" data-consultation="30min">Book 30-Min Consultation</button>
+          </div>
+
+          <div class="consultation-card featured" data-aos="fade-up" data-aos-delay="100">
+            <div class="consultation-badge">Most Popular</div>
+            <div class="consultation-header">
+              <h3>Comprehensive Consultation</h3>
+              <div class="price">$75</div>
+              <div class="duration">60 minutes</div>
+            </div>
+            <div class="consultation-features">
+              <ul>
+                <li><i class="fas fa-check"></i> Detailed case analysis</li>
+                <li><i class="fas fa-check"></i> Comprehensive legal strategy</li>
+                <li><i class="fas fa-check"></i> Document review</li>
+                <li><i class="fas fa-check"></i> Customized action plan</li>
+                <li><i class="fas fa-check"></i> Follow-up recommendations</li>
+              </ul>
+            </div>
+            <button class="btn btn-primary book-btn" data-consultation="60min">Book 60-Min Consultation</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Booking Form -->
+      <section class="booking-form-section" data-aos="fade-up">
+        <div class="form-container">
+          <h2>Schedule Your Appointment</h2>
+          <p>Please fill out the form below to schedule your consultation with Natalie Hurley Harden Schmidt.</p>
+          
+          <form class="booking-form" id="bookingForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="consultationType">Consultation Type *</label>
+              <select id="consultationType" name="consultationType" required>
+                <option value="">Select consultation type</option>
+                <option value="30min">30-Minute Consultation ($50)</option>
+                <option value="60min">60-Minute Consultation ($75)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="practiceArea">Practice Area of Interest</label>
+              <select id="practiceArea" name="practiceArea">
+                <option value="">Select practice area</option>
+                <option value="estate-planning">Estate Planning & Asset Protection</option>
+                <option value="probate">Probate & Estate Administration</option>
+                <option value="real-estate">Real Estate & Property Law</option>
+                <option value="tax">Tax Matters & Compliance</option>
+                <option value="business">Business Formation & Acquisitions</option>
+                <option value="mediation">Mediation & Dispute Resolution</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Brief Description of Your Legal Needs</label>
+              <textarea id="message" name="message" rows="4" placeholder="Please provide a brief description of your legal situation and what you hope to accomplish through our consultation."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="preferredDate">Preferred Date</label>
+              <input type="date" id="preferredDate" name="preferredDate" min="">
+            </div>
+
+            <div class="form-group">
+              <label for="preferredTime">Preferred Time</label>
+              <select id="preferredTime" name="preferredTime">
+                <option value="">Select preferred time</option>
+                <option value="morning">Morning (9:00 AM - 12:00 PM)</option>
+                <option value="afternoon">Afternoon (1:00 PM - 4:00 PM)</option>
+                <option value="evening">Evening (4:00 PM - 6:00 PM)</option>
+              </select>
+            </div>
+
+            <div class="form-group checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="agreement" required>
+                <span class="checkmark"></span>
+                I agree to the terms and conditions and understand that this consultation is subject to availability.
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary submit-btn">
+              <i class="fas fa-calendar-check"></i>
+              Schedule Consultation
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section class="testimonials-section">
+        <div class="section-header">
+          <h2>Client Testimonials</h2>
+          <p>What our clients say about working with Natalie</p>
+        </div>
+        
+        <div class="testimonials-grid">
+          <div class="testimonial-card" data-aos="fade-up">
+            <div class="testimonial-content">
+              <div class="testimonial-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p>"Natalie has a great deal of very good experience in the area of taxation and accounting and I would recommend her in this area."</p>
+              <div class="testimonial-author">
+                <div class="author-info">
+                  <h4>John Golwen</h4>
+                  <span>Assistant Practice Group Leader, Bass, Berry & Sims</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="testimonial-content">
+              <div class="testimonial-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p>"Natalie is a very bright and detail-oriented attorney. I always have been impressed with Natalie's results, and she is extremely pleasant to work with."</p>
+              <div class="testimonial-author">
+                <div class="author-info">
+                  <h4>Tucker Dewey</h4>
+                  <span>Attorney</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="testimonial-content">
+              <div class="testimonial-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p>"I had the pleasure of working with Natalie for several years at Armstrong Allen. I found her work to be excellent. Her legal research and writing skills are top-notch and she used her time efficiently to always deliver a product that was timely and to the point."</p>
+              <div class="testimonial-author">
+                <div class="author-info">
+                  <h4>Kathy Laughter Laizure</h4>
+                  <span>Attorney at Dowden, Worley, Jewell, Olswing & John, P.L.L.C.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="testimonial-content">
+              <div class="testimonial-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p>"Natalie is a fine business lawyer, experienced and committed to her clients and determined to provide them the counsel they need when they need it."</p>
+              <div class="testimonial-author">
+                <div class="author-info">
+                  <h4>Lucian Pera</h4>
+                  <span>Partner at Adams & Reese, LLP</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Information -->
+      <section class="contact-info-section" data-aos="fade-up">
+        <div class="contact-grid">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Service Areas</h3>
+              <p>Mississippi & Tennessee</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-gavel"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Licensed In</h3>
+              <p>Mississippi & Tennessee</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Mediation</h3>
+              <p>Listed Rule 31 Mediator</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Response Time</h3>
+              <p>Within 24 hours</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>NHS Law Firm</h3>
+          <p>Elite estate planning and legal services for discerning clients throughout Mississippi and Tennessee.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Practice Areas</h4>
+          <ul>
+            <li><a href="#estate-planning">Estate Planning</a></li>
+            <li><a href="#probate">Probate & Administration</a></li>
+            <li><a href="#real-estate">Real Estate Law</a></li>
+            <li><a href="#tax">Tax Matters</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>Licensed in Mississippi & Tennessee</p>
+          <p>Listed Rule 31 Mediator</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 NHS Law Firm. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
